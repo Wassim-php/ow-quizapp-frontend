@@ -1,6 +1,10 @@
 import React from 'react'
 import { Check, ChevronRight } from 'lucide-react';
 import NavBar from './NavBar';
+import A320PlatformPage from './A320PlatformPage';
+import FeaturesSection from './FeaturesSection';
+import MembershipsSection from './MembershipsSection';
+import Footer from './Footer';
 const Home = () => {
     const heading =  'Master the Airbus A320 Type Rating';
     const subheading =  'Simplify your A320 study — exam prep, sim training, and technical knowledge all in one place.';
@@ -11,11 +15,12 @@ const Home = () => {
     'Built and updated by current A320 Professionals'
   ];
   return (
-    <div className="relative min-h-screen w-full bg-black">
+    <>
+      <div className="relative min-h-screen w-full bg-black">
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(https://csspicker.dev/api/image/?q=aircraft+cockpit+controls&image_type=photo)`,
+          backgroundImage: `url('/images/pexels-joerg-mangelsen-337913024-14200682.jpg')`,
           opacity: 0.6
         }}
       />
@@ -53,6 +58,15 @@ const Home = () => {
         </main>
       </div>
     </div>
+      
+      <A320PlatformPage />
+
+      <FeaturesSection />
+
+      <MembershipsSection />
+
+      <Footer />
+    </>
   )
 }
 
