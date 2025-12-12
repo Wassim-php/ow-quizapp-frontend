@@ -1,12 +1,34 @@
-import React from 'react';
-// Using Lucide icons for Facebook and Twitter
+import React, { useEffect, useState } from 'react';
 import { Facebook, Twitter } from 'lucide-react'; 
-// Using React Icons (Font Awesome) for the Pinterest logo
 import { FaPinterestP } from 'react-icons/fa'; 
 
 const Footer = () => {
+  
+  const [isVisible, setIsVisible] = useState(false);
+
+ 
+  useEffect(() => {
+    // Set a small timeout to ensure Tailwind transitions are recognized
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 500); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // 3. Conditional CSS Classes for Animation
+  const animationClasses = isVisible
+    ? 'opacity-100 translate-y-0' 
+    : 'opacity-0 translate-y-4';   
+
   return (
-    <footer className="bg-black py-8 md:py-12 text-white font-sans border-t border-gray-900">
+    <footer 
+      className={`
+        bg-black py-8 md:py-12 text-white font-sans border-t border-gray-900 
+        transition-all duration-700 ease-out 
+        ${animationClasses}
+      `}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-8 md:space-y-0">
           
@@ -54,7 +76,6 @@ const Footer = () => {
               <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-white transition">
                 <Twitter size={20} />
               </a>
-              {/* Using the FaPinterestP icon from react-icons */}
               <a href="#" aria-label="Pinterest" className="text-gray-400 hover:text-white transition">
                 <FaPinterestP size={20} />
               </a>

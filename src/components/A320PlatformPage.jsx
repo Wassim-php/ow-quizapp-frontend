@@ -1,6 +1,6 @@
-import React from 'react';
-import MobileMockup from './MobileMockup';
-import PlatformDescription from './PlatformDescription';
+import React from "react";
+import MobileMockup from "./MobileMockup";
+import PlatformDescription from "./PlatformDescription";
 
 const A320PlatformPage = () => {
   return (
@@ -32,7 +32,8 @@ const A320PlatformPage = () => {
       {/* --- CTA Section --- */}
       <div className="py-12 text-center">
         <p className="text-lg text-gray-700 mb-6">
-          Ready to test your knowledge and enhance your proficiency with the A320?
+          Ready to test your knowledge and enhance your proficiency with the
+          A320?
         </p>
         <div className="flex justify-center space-x-4">
           <button className="px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">
