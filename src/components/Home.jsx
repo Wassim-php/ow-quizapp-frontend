@@ -1,10 +1,10 @@
 import React from "react";
 import { Check, ChevronRight } from "lucide-react";
-import NavBar from "./NavBar";
 import A320PlatformPage from "./A320PlatformPage";
 import FeaturesSection from "./FeaturesSection";
 import MembershipsSection from "./MembershipsSection";
-import Footer from "./Footer";
+import { Link } from "react-router-dom";
+
 const Home = () => {
   const heading = "Master the Airbus A320 Type Rating";
   const subheading =
@@ -50,10 +50,12 @@ const Home = () => {
                 Get Started
                 <ChevronRight className="w-5 h-5" />
               </button>
-              <button className="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-8 py-3.5 rounded-lg font-medium transition-colors flex items-center gap-2 text-lg">
-                Start Demo
-                <ChevronRight className="w-5 h-5" />
-              </button>
+              <Link to="/testChooser">
+                <button className="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-8 py-3.5 rounded-lg font-medium transition-colors flex items-center gap-2 text-lg">
+                  Start Demo
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </Link>
             </div>
           </main>
         </div>
@@ -65,7 +67,7 @@ const Home = () => {
 
       <MembershipsSection />
 
-      <Footer />
+      
     </>
   );
 };

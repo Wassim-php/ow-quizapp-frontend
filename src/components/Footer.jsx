@@ -53,7 +53,7 @@ const Footer = () => {
 
             {/* Developer Credit */}
             <p className="text-xs text-gray-500 mt-4">
-              Developed by <a href="#" className="text-blue-500 hover:text-blue-400 transition">Michan Pavlou</a>
+              Developed by <a href="#" className="text-blue-500 hover:text-blue-400 transition">Omar Nasrallah</a>
             </p>
           </div>
 

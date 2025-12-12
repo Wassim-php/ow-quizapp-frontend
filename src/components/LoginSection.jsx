@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+
 
 const LoginSection = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,14 +37,14 @@ const LoginSection = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     if (formErrors[name]) {
-      setFormErrors(prev => ({
+      setFormErrors((prev) => ({
         ...prev,
-        [name]: ""
+        [name]: "",
       }));
     }
   };
@@ -66,9 +66,9 @@ const LoginSection = () => {
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
@@ -89,7 +89,7 @@ const LoginSection = () => {
     } catch (error) {
       console.error("Login error:", error);
       setFormErrors({
-        submit: error.message || "Login failed. Please check your credentials."
+        submit: error.message || "Login failed. Please check your credentials.",
       });
     } finally {
       setIsSubmitting(false);
@@ -172,7 +172,9 @@ const LoginSection = () => {
                 required
               />
               {formErrors.password && (
-                <p className="text-red-500 text-sm mt-1">{formErrors.password}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {formErrors.password}
+                </p>
               )}
               <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 cursor-pointer">
                 <svg
@@ -237,7 +239,6 @@ const LoginSection = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

@@ -15,7 +15,7 @@ const NavBar = () => {
 
       <nav className="flex items-center gap-8">
         <a
-          href="#"
+          href="/testChooser"
           className="text-white hover:text-gray-300 transition-colors"
         >
           Start Demo

@@ -1,6 +1,7 @@
 import React from "react";
 import MobileMockup from "./MobileMockup";
 import PlatformDescription from "./PlatformDescription";
+import { Link } from "react-router-dom";
 
 const A320PlatformPage = () => {
   return (
@@ -36,9 +37,11 @@ const A320PlatformPage = () => {
           A320?
         </p>
         <div className="flex justify-center space-x-4">
+          <Link to="/testChooser">
           <button className="px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">
             Start Demo Test
           </button>
+          </Link>
           <button className="px-6 py-3 text-lg font-medium text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition duration-300">
             Learn More
           </button>

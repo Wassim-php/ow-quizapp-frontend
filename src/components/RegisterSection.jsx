@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Eye } from "lucide-react";
-import Footer from "./Footer";
+
 
 const RegisterSection = () => {
   const navigate = useNavigate();
@@ -357,7 +357,7 @@ const RegisterSection = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      
     </>
   );
 };
