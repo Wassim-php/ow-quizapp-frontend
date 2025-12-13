@@ -8,6 +8,9 @@ import NotFoundPage from "./pages/NotFoundPage";
 import RegisterPage from "./pages/RegisterPage";
 import TestChoosePage from "./pages/TestChoosePage";
 import Footer from "./components/Footer";
+import MembershipPage from "./pages/MembershipPage";
+import AboutUsPage from "./components/AboutUs";
+import ContactUsPage from "./pages/ContactUsPage";
 
 function App() {
   return (
@@ -19,8 +22,16 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
 
         <Route path="/login" element={<LoginPage />} />
+
         <Route path="/register" element={<RegisterPage />} />
+
         <Route path="/testChooser" element={<TestChoosePage />} />
+
+        <Route path="/memberships" element={<MembershipPage />} />
+
+        <Route path="/about-us" element={<AboutUsPage />} />
+
+        <Route path="/contact-us" element={<ContactUsPage />} />
       </Routes>
       <Footer />
     </>

@@ -42,9 +42,12 @@ const A320PlatformPage = () => {
             Start Demo Test
           </button>
           </Link>
+
+          <Link to="/about-us">
           <button className="px-6 py-3 text-lg font-medium text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition duration-300">
             Learn More
           </button>
+          </Link>
         </div>
       </div>
     </div>

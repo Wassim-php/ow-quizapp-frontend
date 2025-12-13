@@ -46,10 +46,12 @@ const Home = () => {
             </div>
 
             <div className="flex gap-4">
+              <Link to="/register">
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-medium transition-colors flex items-center gap-2 text-lg">
                 Get Started
                 <ChevronRight className="w-5 h-5" />
               </button>
+              </Link>
               <Link to="/testChooser">
                 <button className="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-8 py-3.5 rounded-lg font-medium transition-colors flex items-center gap-2 text-lg">
                   Start Demo

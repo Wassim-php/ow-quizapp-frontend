@@ -65,7 +65,7 @@ const Footer = () => {
             <div className="flex space-x-6 text-sm font-medium">
               <a href="#" className="text-gray-300 hover:text-white transition">FAQ</a>
               <a href="#" className="text-gray-300 hover:text-white transition border-b border-gray-300">Terms and Conditions</a>
-              <a href="#" className="text-gray-300 hover:text-white transition">Contact Us</a>
+              <a href="/contact-us" className="text-gray-300 hover:text-white transition">Contact Us</a>
             </div>
 
             {/* Social Media Icons */}

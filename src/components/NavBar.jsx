@@ -21,19 +21,19 @@ const NavBar = () => {
           Start Demo
         </a>
         <a
-          href="#"
+          href="/memberships"
           className="text-white hover:text-gray-300 transition-colors"
         >
           Memberships
         </a>
         <a
-          href="#"
+          href="/about-us"
           className="text-white hover:text-gray-300 transition-colors"
         >
           About Us
         </a>
         <a
-          href="#"
+          href="/contact-us"
           className="text-white hover:text-gray-300 transition-colors"
         >
           Contact Us
