@@ -1,6 +1,6 @@
 import React from "react";
 import MembershipCard from "./MembershipCard";
-import { useInView } from "../hooks/UseInView";
+import { useInView } from "../hooks/useInView";
 const membershipsData = [
   {
     duration: "14-Day Membership",

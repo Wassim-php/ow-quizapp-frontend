@@ -1,7 +1,7 @@
 // src/components/FeaturesSection.jsx (Updated)
 import React from "react";
 import FeatureCard from "./FeatureCard";
-import { useInView } from '../hooks/UseInView'; 
+import { useInView } from '../hooks/useInView'; 
 
 // Icon data based on the original image 
 const featuresData = [
