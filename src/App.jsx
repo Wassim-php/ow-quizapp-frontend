@@ -12,6 +12,7 @@ import MembershipPage from "./pages/MembershipPage";
 import AboutUsPage from "./components/AboutUs";
 import ContactUsPage from "./pages/ContactUsPage";
 import FAQPage from "./pages/FAQPage";
+import TermsAndConditions from "./components/TermsAndConditions";
 
 function App() {
   return (
@@ -33,8 +34,10 @@ function App() {
         <Route path="/about-us" element={<AboutUsPage />} />
 
         <Route path="/contact-us" element={<ContactUsPage />} />
-        
+
         <Route path="/faq" element={<FAQPage />}/>
+
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       </Routes>
       <Footer />
     </>
