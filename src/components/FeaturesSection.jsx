@@ -1,12 +1,13 @@
+// src/components/FeaturesSection.jsx (Updated)
 import React from "react";
 import FeatureCard from "./FeatureCard";
+import { useInView } from '../hooks/UseInView'; 
 
-// Icon data based on the original image (using placeholder SVG paths or names)
-// In a real project, you would import icons from a library like Heroicons (@heroicons/react)
+// Icon data based on the original image 
 const featuresData = [
   {
     id: 1,
-    iconName: "Unrivaled Expertise Icon", // Placeholder for the lightbulb icon
+    iconName: "Unrivaled Expertise Icon",
     iconStyle: "text-blue-400",
     title: "Unrivaled Expertise",
     description:
@@ -14,7 +15,7 @@ const featuresData = [
   },
   {
     id: 2,
-    iconName: "Comprehensive Coverage Icon", // Placeholder for the open book icon
+    iconName: "Comprehensive Coverage Icon",
     iconStyle: "text-blue-400",
     title: "Comprehensive Coverage",
     description:
@@ -22,7 +23,7 @@ const featuresData = [
   },
   {
     id: 3,
-    iconName: "Cutting-Edge Tools Icon", // Placeholder for the gear/atom icon
+    iconName: "Cutting-Edge Tools Icon",
     iconStyle: "text-blue-400",
     title: "Cutting-Edge Learning Tools",
     description:
@@ -30,7 +31,7 @@ const featuresData = [
   },
   {
     id: 4,
-    iconName: "Tailored to Your Needs Icon", // Placeholder for the person & setting icon
+    iconName: "Tailored to Your Needs Icon",
     iconStyle: "text-blue-400",
     title: "Tailored to Your Needs",
     description:
@@ -38,7 +39,7 @@ const featuresData = [
   },
   {
     id: 5,
-    iconName: "Community and Support Icon", // Placeholder for the people icon
+    iconName: "Community and Support Icon",
     iconStyle: "text-blue-400",
     title: "Community and Support",
     description:
@@ -47,10 +48,19 @@ const featuresData = [
 ];
 
 const FeaturesSection = () => {
+  const [sectionRef, isVisible] = useInView({ threshold: 0.1 });
+
+  const animationClasses = isVisible
+    ? 'opacity-100 translate-y-0'
+    : 'opacity-0 translate-y-8';
+
   return (
     <div className="bg-gray-900 py-16 md:py-24 font-sans text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* --- Header --- */}
+      <div 
+        ref={sectionRef} 
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-700 ease-out ${animationClasses}`}
+      >
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold">Features</h2>
           <p className="mt-4 text-gray-400 text-lg">
@@ -59,15 +69,18 @@ const FeaturesSection = () => {
           </p>
         </div>
 
-        {/* --- Features Grid (Responsive Layout) --- */}
+        {/* Features Grid (Responsive Layout) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuresData.map((feature) => (
+          {featuresData.map((feature, index) => (
             <FeatureCard
               key={feature.id}
               iconName={feature.iconName}
               iconStyle={feature.iconStyle}
               title={feature.title}
               description={feature.description}
+              // --- NEW PROP PASSING FOR STAGGERED ANIMATION ---
+              isVisible={isVisible}
+              index={index}
             />
           ))}
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import MembershipCard from "./MembershipCard";
+import { useInView } from '../hooks/UseInView';
 
 const membershipsData = [
   {
@@ -16,7 +17,7 @@ const membershipsData = [
       "Designed for focused exam study — a full month to prepare thoroughly and build confidence.",
     price: "29",
     perMonth: "29",
-    isPopular: true, // Marked as popular
+    isPopular: true,
   },
   {
     duration: "3-Month Membership",
@@ -45,10 +46,19 @@ const membershipsData = [
 ];
 
 const MembershipsSection = () => {
+  const [sectionRef, isVisible] = useInView({ threshold: 0.1 });
+
+  const animationClasses = isVisible
+    ? 'opacity-100 translate-y-0'
+    : 'opacity-0 translate-y-8';
+
   return (
     <div className="bg-gray-800 py-16 md:py-24 font-sans text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* --- Header --- */}
+      <div 
+        ref={sectionRef}
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-700 ease-out ${animationClasses}`}
+      >
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-white">Our Memberships</h2>
           <p className="mt-4 text-blue-200 text-lg max-w-3xl mx-auto">
@@ -59,11 +69,9 @@ const MembershipsSection = () => {
           </p>
         </div>
 
-        {/* --- Membership Cards Grid (Responsive Layout) --- */}
-        {/* The grid layout uses 1 column on mobile, 2 on tablets, and 3 on large screens for an organized fit */}
+        {/* Membership Cards Grid (Responsive Layout) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {membershipsData.map((membership) => (
-            // Applying relative positioning here allows the "POPULAR" badge to be positioned absolutely relative to the card.
+          {membershipsData.map((membership, index) => (
             <div key={membership.duration} className="relative">
               <MembershipCard
                 duration={membership.duration}
@@ -71,6 +79,9 @@ const MembershipsSection = () => {
                 price={membership.price}
                 perMonth={membership.perMonth}
                 isPopular={membership.isPopular}
+                // --- NEW PROP PASSING FOR STAGGERED ANIMATION ---
+                isVisible={isVisible}
+                index={index}
               />
             </div>
           ))}

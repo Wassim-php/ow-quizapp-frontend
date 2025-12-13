@@ -1,51 +1,38 @@
-import React from "react";
+import React from 'react';
+import { Check } from 'lucide-react';
 
 const PlatformDescription = () => {
+  const benefits = [
+    { title: 'In-Depth Knowledge', content: 'Gain a deeper understanding of the A320\'s systems, operations, and procedures.' },
+    { title: 'Varied Question Categories', content: 'Encounter questions on diverse topics, including avionics, flight operations, safety protocols, and more.' },
+    { title: 'Progressive Difficulty', content: 'Challenge yourself with questions that range from basic to advanced levels, helping you to improve and expand your expertise.' },
+  ];
+
   return (
-    <div>
-      <h3 className="text-2xl font-bold text-gray-800 mb-4">
-        Experience Comprehensive A320 Learning
+    <>
+      <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+        A320 Question Bank: Your Ultimate Resource for Airbus A320 Exam Preparation
       </h3>
-      <p className="text-gray-600 mb-4 leading-relaxed">
-        Our platform provides an interactive and comprehensive learning
-        experience designed specifically for A320 pilots and aviation
-        professionals. Test your knowledge, track your progress, and master
-        critical systems.
+      <p className="text-gray-700 leading-relaxed mb-6">
+        Prepare to elevate your understanding of the Airbus A320 with our comprehensive multiple-choice tests.
+      </p>
+      
+      <p className="text-gray-700 font-semibold mb-4">
+        By taking these tests, you will benefit from:
       </p>
 
-      <ul className="space-y-3 mb-6">
-        <li className="flex items-start">
-          <span className="text-blue-600 font-bold mr-3">✓</span>
-          <span className="text-gray-700">
-            Real-time test results and detailed performance analytics
-          </span>
-        </li>
-        <li className="flex items-start">
-          <span className="text-blue-600 font-bold mr-3">✓</span>
-          <span className="text-gray-700">
-            Track progress with visual score breakdowns and insights
-          </span>
-        </li>
-        <li className="flex items-start">
-          <span className="text-blue-600 font-bold mr-3">✓</span>
-          <span className="text-gray-700">
-            Practice unlimited scenarios with instant feedback
-          </span>
-        </li>
-        <li className="flex items-start">
-          <span className="text-blue-600 font-bold mr-3">✓</span>
-          <span className="text-gray-700">
-            Detailed time tracking for exam preparation
-          </span>
-        </li>
+      <ul className="space-y-4 mb-8">
+        {benefits.map((item, index) => (
+          <li key={index} className="flex space-x-3 items-start">
+            <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <span className="font-medium text-gray-800">{item.title}:</span>
+              <span className="text-gray-700 ml-1">{item.content}</span>
+            </div>
+          </li>
+        ))}
       </ul>
-
-      <p className="text-gray-600 leading-relaxed">
-        Whether you're preparing for your type rating or maintaining your
-        proficiency, our platform adapts to your learning pace and provides the
-        tools you need to succeed.
-      </p>
-    </div>
+    </>
   );
 };
 
