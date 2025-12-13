@@ -1,6 +1,6 @@
 import React from "react";
 import MembershipCard from "./MembershipCard";
-import { useInView } from '../hooks/UseInView';
+import { UseInView } from '../hooks/UseInView.js';
 
 const membershipsData = [
   {
@@ -46,7 +46,7 @@ const membershipsData = [
 ];
 
 const MembershipsSection = () => {
-  const [sectionRef, isVisible] = useInView({ threshold: 0.1 });
+  const [sectionRef, isVisible] = UseInView({ threshold: 0.1 });
 
   const animationClasses = isVisible
     ? 'opacity-100 translate-y-0'

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
  * @param {object} options - Options for the Intersection Observer (e.g., rootMargin)
  * @returns {[ref, boolean]} - The ref to attach to the element and the isVisible state
  */
-export const useInView = (options) => {
+export const UseInView = (options) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
