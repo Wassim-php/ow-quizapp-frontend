@@ -1,6 +1,6 @@
 import React from "react";
 import MembershipCard from "./MembershipCard";
-import { UseInView } from '../hooks/UseInView.js';
+import { UseInView } from '../hooks/useInView.js';
 
 const membershipsData = [
   {

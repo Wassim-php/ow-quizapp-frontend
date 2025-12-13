@@ -2,7 +2,7 @@ import React from "react";
 import MobileMockup from "./MobileMockup";
 import PlatformDescription from "./PlatformDescription";
 import { Link } from "react-router-dom";
-import { UseInView } from '../hooks/UseInView'; // Assuming the hook path
+import { UseInView } from '../hooks/useInView'; // Assuming the hook path
 
 const A320PlatformPage = () => {
   // 1. Initialize the hook to monitor the main content
