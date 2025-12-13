@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Target, Lightbulb, UserCheck, Zap, Layers, Globe } from 'lucide-react';
 import InfoBox from './InfoBox';
 import FeatureBlock from './FeatureBlock';
+import { Link } from 'react-router-dom';
 
 
 
@@ -114,9 +115,11 @@ const AboutUs = () => {
             <p className="text-blue-100 mb-6">
               Join our community today by creating your **free account** to gain access to a wealth of technical resources tailored to your aviation journey.
             </p>
+            <Link to="/register">
             <button className="py-3 px-6 bg-white text-blue-700 font-semibold rounded-lg hover:bg-gray-100 transition shadow-md">
               Join A320 Question Bank Today
             </button>
+            </Link>
           </div>
 
           {/* Contact & Support */}
@@ -128,9 +131,11 @@ const AboutUs = () => {
             <p className="text-gray-600 mb-4">
               Have more questions? Visit our <span className="font-semibold">FAQ page</span> for detailed answers.
             </p>
+            <Link to="/contact-us">
             <button className="py-2 px-6 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition duration-300">
               Contact Us
             </button>
+            </Link>
           </div>
         </div>
 
