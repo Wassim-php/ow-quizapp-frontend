@@ -1,7 +1,7 @@
 // src/components/FeaturesSection.jsx (Updated)
 import React from "react";
 import FeatureCard from "./FeatureCard";
-import { UseInView } from '../hooks/useInView'; 
+import { useInView } from '../hooks/UseInView'; 
 
 // Icon data based on the original image 
 const featuresData = [
@@ -48,7 +48,7 @@ const featuresData = [
 ];
 
 const FeaturesSection = () => {
-  const [sectionRef, isVisible] = UseInView({ threshold: 0.1 });
+  const [sectionRef, isVisible] = useInView({ threshold: 0.1 });
 
   const animationClasses = isVisible
     ? 'opacity-100 translate-y-0'

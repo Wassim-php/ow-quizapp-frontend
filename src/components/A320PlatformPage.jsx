@@ -2,11 +2,11 @@ import React from "react";
 import MobileMockup from "./MobileMockup";
 import PlatformDescription from "./PlatformDescription";
 import { Link } from "react-router-dom";
-import { UseInView } from '../hooks/useInView'; // Assuming the hook path
+import { useInView } from '../hooks/UseInView'; // Assuming the hook path
 
 const A320PlatformPage = () => {
   // 1. Initialize the hook to monitor the main content
-  const [sectionRef, isVisible] = UseInView({ threshold: 0.5 });
+  const [sectionRef, isVisible] = useInView({ threshold: 0.5 });
 
   // 2. Conditional CSS Classes for Animation
   const animationClasses = isVisible
