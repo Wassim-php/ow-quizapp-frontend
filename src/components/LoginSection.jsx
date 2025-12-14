@@ -231,7 +231,7 @@ const LoginSection = () => {
               Forgot your password?
             </a>
             <a
-              href="#"
+              href="/register"
               className="font-medium text-gray-600 hover:text-black transition"
             >
               Don't have an account?

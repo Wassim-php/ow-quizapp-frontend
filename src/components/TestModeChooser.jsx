@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // Using Lucide icons for the card content
 import { BookOpen, Clock, CheckCircle } from 'lucide-react'; 
+import { Link } from 'react-router-dom';
 
 const TestModeChooser = () => {
   // 1. State for Animation Control
@@ -69,10 +70,11 @@ const TestModeChooser = () => {
                 </li>
               </ul>
             </div>
-
+            <Link to="/practice-test">
             <button className="w-full py-3 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition duration-300 shadow-md">
               Start Practice Test
             </button>
+            </Link>
           </div>
           
           {/* Card 2: Exam Mode (Vibrant Purple Scheme) */}
@@ -106,9 +108,11 @@ const TestModeChooser = () => {
               </ul>
             </div>
 
+            <Link to="/exam-test">
             <button className="w-full py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition duration-300 shadow-md">
               Start Exam Test
             </button>
+            </Link>
           </div>
 
         </div>
