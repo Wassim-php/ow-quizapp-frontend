@@ -1,11 +1,4 @@
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: "http://localhost:8088",
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+import { api } from "./api-service";
 
 class AnswerService {
   async editAnswer(answerData) {
