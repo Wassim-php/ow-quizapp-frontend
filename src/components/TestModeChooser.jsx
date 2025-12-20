@@ -70,7 +70,7 @@ const TestModeChooser = () => {
                 </li>
               </ul>
             </div>
-            <Link to="/practice-test">
+            <Link to="/practice-chooser">
             <button className="w-full py-3 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition duration-300 shadow-md">
               Start Practice Test
             </button>
@@ -108,7 +108,7 @@ const TestModeChooser = () => {
               </ul>
             </div>
 
-            <Link to="/exam-test">
+            <Link to="/exam-chooser">
             <button className="w-full py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition duration-300 shadow-md">
               Start Exam Test
             </button>

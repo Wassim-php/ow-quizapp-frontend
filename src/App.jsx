@@ -15,6 +15,7 @@ import FAQPage from "./pages/FAQPage";
 import TermsAndConditions from "./components/TermsAndConditions";
 import PracticeTestPage from "./pages/PracticeTestPage";
 import ExamTestPage from "./pages/ExamTestPage";
+import ChooseCategoryPage from "./pages/ChooseCategoryPage";
 
 function App() {
   return (
@@ -44,6 +45,12 @@ function App() {
         <Route path="/practice-test" element={<PracticeTestPage/>} />
 
         <Route path="/exam-test" element={<ExamTestPage />} />
+
+        <Route path="/practice-chooser" element={<ChooseCategoryPage testType="practice"/>} />
+
+        <Route path="/exam-chooser" element={<ChooseCategoryPage testType="exam"/>} />
+
+        
       </Routes>
       <Footer />
     </>
