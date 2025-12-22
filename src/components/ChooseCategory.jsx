@@ -64,7 +64,7 @@ const ChooseCategory = ({ testType }) => {
                 {cat.catName}
               </h2>
               <p className="text-sm text-gray-500 mt-2">
-                Start Test
+                Start {testType} test
               </p>
             </button>
           ))}

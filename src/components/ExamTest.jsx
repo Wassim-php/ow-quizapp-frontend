@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import QuestionDisplay from "./QuestionDisplay";
 import { Clock } from "lucide-react";
 import QuestionService from "../services/QuestionService";
+import { useLocation } from "react-router-dom";
 
 const EXAM_DURATION_SECONDS = 3600;
 
@@ -11,12 +12,20 @@ const ExamTest = () => {
   const [isExamActive, setIsExamActive] = useState(true);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const categoryId = location.state?.categoryId;
+  console.log("Received Category ID:", categoryId);
 
   useEffect(() => {
     const fetchQuestions = async () => {
+      if (!categoryId) {
+        console.error("No category selected!");
+        return;
+      }
+
       try {
         setLoading(true);
-        const data = await QuestionService.getAllQuestions();
+        const data = await QuestionService.getQuestionsByCategory(categoryId);
         setQuestions(data || []);
       } catch (error) {
         console.error("Failed to load questions: " + error);
@@ -66,7 +75,16 @@ const ExamTest = () => {
     }
   };
 
-  if (loading) return <div className="text-white text-center py-20">Loading Exam...</div>;
+  if (loading)
+    return <div className="text-white text-center py-20">Loading Exam...</div>;
+  if (!categoryId) {
+    return (
+      <div className="text-white text-center py-20">
+        <p>Please go back and select a category first.</p>
+        <button onClick={() => navigate("/testChooser")}>Go Back</button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 py-16 font-sans">
@@ -75,7 +93,13 @@ const ExamTest = () => {
           <h1 className="text-3xl font-bold text-blue-400">Exam Mode</h1>
           <div className="flex items-center space-x-3">
             <Clock className="w-6 h-6 text-red-400" />
-            <span className={`text-2xl font-mono ${timeRemaining <= 300 ? "text-red-400 font-bold animate-pulse" : "text-white"}`}>
+            <span
+              className={`text-2xl font-mono ${
+                timeRemaining <= 300
+                  ? "text-red-400 font-bold animate-pulse"
+                  : "text-white"
+              }`}
+            >
               {formatTime(timeRemaining)}
             </span>
           </div>

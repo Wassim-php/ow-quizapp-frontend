@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from "react";
 import QuestionDisplay from "./QuestionDisplay";
 import QuestionService from "../services/QuestionService";
+import { useLocation } from "react-router-dom";
 
 const PracticeTest = () => {
+  const location = useLocation();
+  const categoryId = location.state?.categoryId;
+  console.log("Received Category ID:", categoryId);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchQuestions = async () => {
+      if (!categoryId) {
+        console.error("No category selected!");
+        return;
+      }
+
       try {
         setLoading(true);
-        const data = await QuestionService.getAllQuestions();
+        const data = await QuestionService.getQuestionsByCategory(categoryId);
         // data comes from response.data.payload in your service
         setQuestions(data || []);
       } catch (error) {
@@ -35,7 +44,16 @@ const PracticeTest = () => {
     }
   };
 
-  if (loading) return <div className="text-white text-center py-20">Loading...</div>;
+  if (loading)
+    return <div className="text-white text-center py-20">Loading...</div>;
+  if (!categoryId) {
+    return (
+      <div className="text-white text-center py-20">
+        <p>Please go back and select a category first.</p>
+        <button onClick={() => navigate("/testChooser")}>Go Back</button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 py-16 font-sans">
